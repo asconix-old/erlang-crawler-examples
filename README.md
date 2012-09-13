@@ -11,8 +11,20 @@ client due to its performance and scalability.
 Quickstart
 ==========
 
-If you already have *rebar* installed, install the required dependencies:
+Checkout the source code of the project:
 
+    $~ git clone git://github.com/asconix/erlang-crawler-examples.git
+
+The project requires the Erlang build tool *rebar*. Install it by executing the following commands:
+
+    $~ git clone git://github.com/basho/rebar.git
+    $~ cd rebar
+    $~ ./bootstrap
+    $~ cp rebar ../erlang-crawler-examples/
+
+After *rebar* has been installed, fetch the required dependency packages:
+
+    $~ cd ../erlang-crawler-examples/
     $~ ./rebar get-deps
     
 ... and compile the Erlang sources (dependencies and individual code):
