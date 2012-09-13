@@ -1,0 +1,14 @@
+{application, simple_crawler, [
+    {description, "Simple web crawler"},
+    {vsn, git},
+    {modules, []},
+    {registered, [simple_crawler_sup]},
+    {applications, [
+        kernel,
+        stdlib,
+        ibrowse
+    ]},
+    {mod, {simple_crawler, []}},
+    {env, []}
+]}.
+
