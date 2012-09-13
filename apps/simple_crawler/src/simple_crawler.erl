@@ -1,11 +1,13 @@
 -module(simple_crawler).
 -define(BASE_URL, "http://46.4.117.69/").
 -define(SAVE_FILE, true).
--export([start/0, send_reqs/0, do_send_req/2]).
+-export([start/0, send_reqs/2, do_send_req/2]).
 
 start() ->
   ibrowse:start(),
-  proc_lib:spawn(?MODULE, send_reqs, []).
+  Ref = make_ref(),
+  proc_lib:spawn(?MODULE, send_reqs, [self(), Ref]),
+  receive_by_ref(Ref).
 
 to_url(Id) ->
   ?BASE_URL ++ integer_to_list(Id).
@@ -13,8 +15,9 @@ to_url(Id) ->
 fetch_ids() ->
   lists:seq(1, 500).
 
-send_reqs() ->
-  spawn_workers(fetch_ids()).
+send_reqs(Pid, Ref) ->
+  spawn_workers(fetch_ids()),
+  Pid ! {Ref, done}.
 
 spawn_workers(Ids) ->
   %% collect reference to each worker
