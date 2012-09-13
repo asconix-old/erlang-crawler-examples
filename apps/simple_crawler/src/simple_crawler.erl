@@ -1,6 +1,6 @@
 -module(simple_crawler).
 -define(BASE_URL, "http://46.4.117.69/").
--define(SAVE_FILE, false).
+-define(SAVE_FILE, true).
 -export([start/0, send_reqs/0, do_send_req/2]).
 
 start() ->
