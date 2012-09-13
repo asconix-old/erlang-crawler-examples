@@ -3,7 +3,9 @@
 *.log
 *~
 .*.swp
+ibrowse_tmp_file*
 deps
 ebin
+data/*
 log/*
 rebar
