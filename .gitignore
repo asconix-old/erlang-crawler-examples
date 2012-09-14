@@ -6,6 +6,6 @@
 ibrowse_tmp_file*
 deps
 ebin
-data/*
+data/ibrowse*
 log/*
 rebar
